@@ -1,0 +1,26 @@
+<h2>You are on <%=@album.title%>'s show page!</h2>
+
+<table>
+    <tr>
+        <td>Title:</td>
+        <td><%= @album.title %></td>
+    </tr>
+
+    <tr>
+        <td>Band:</td>
+        <td><a href="<%=band_url(@album.band)%>"><%= @album.band.name %> </a></td>
+    </tr>
+
+    <tr>
+        <td>Studio or Live:</td>
+        <td><%= @album.live ? "Live" : "Studio" %></td>
+    </tr>
+
+    <tr>
+        <td>Year:</td>
+        <td><%= @album.year %></td>
+    </tr>
+</table>
+
+
+<a href="<%=albums_url%>">Click here to go back to the albums index page</a>

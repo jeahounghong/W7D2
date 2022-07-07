@@ -1,0 +1,15 @@
+
+<h2>You are on <%=@band.name%>'s show page!</h2>
+
+<h1> <%=@band.name%>'s Albums!</h1>
+<li>
+    <% Band.select('albums.*').joins(:albums).where('bands.id = ?',@band.id).each do |album| %>
+        <a href="<%=album_url(album)%>"><%= album.title %></a><br>
+    <% end %>
+</li>
+
+
+<a href="<%=new_band_album_url(@band)%>">Create a new album!</a><br>
+<a href="<%=edit_band_url(@band)%>">Edit band info</a><br>
+<%= link_to 'Delete Band', band_url(@band), :method=>:delete%><br>
+<a href="<%=bands_url%>">Click here to go back to the bands index page</a>
